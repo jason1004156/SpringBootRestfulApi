@@ -121,6 +121,8 @@ public class BookService {
 			if (StringUtils.isNotBlank(temp)) {
 				if (column.contains("Date")) {
 					q.setParameter(column, Date.valueOf(temp));
+				}else if (column.contains("Price")) {
+					q.setParameter(column, Double.valueOf(temp));
 				} else {
 					q.setParameter(column, temp);
 				}
