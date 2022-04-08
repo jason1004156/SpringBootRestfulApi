@@ -13,7 +13,7 @@
  代表操作失敗，`"data"`內會顯示錯誤訊息
  
  # 回傳範例
- `{
+ ```JSON{
     "state": "200",
     "data": [
         {
@@ -35,7 +35,8 @@
             "isbn": "000-18-1803-1"
         }
     ]
-}`
+}
+```
 
 # 建置
  該專案有使用lombok
@@ -46,7 +47,7 @@
 # API路徑
 ***
 ## Book物件
-`{
+```JSON{
             "name": "Spring 2.0技術手冊",
             "translator": null,
             "price": 0.0,
@@ -54,7 +55,9 @@
             "publisher": "電子工業出版社",
             "publicationDate": "2008-11-01",
             "isbn": "986-18-1106-0"
-        }`
+        }
+  ```
+        
  ## 查詢全部
   GET localhost:8080/book
   
