@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Book;
@@ -70,11 +71,48 @@ public class BookService {
 
 	}
 	
+	/**
+	 * 儲存
+	 * @param book
+	 * @throws Exception
+	 */
 	public void save(Book book) throws Exception {
 		if (StringUtils.isBlank(book.getISBN())) {
 			throw new Exception("ISBN不可為空!");
 		}
 		rep.save(book);
+	}
+	/**
+	 * 更新
+	 * @param id
+	 * @param book
+	 * @throws Exception
+	 */
+	public void update(String id, Book book) throws Exception{
+		if (StringUtils.isBlank(book.getISBN())) {
+			throw new Exception("ISBN不可為空!");
+		}
+		
+		if(StringUtils.isNotBlank(id) && !id.equals(book.getISBN())) {
+			delete(id);
+		}
+		rep.save(book);
+	}
+	
+	/**
+	 * 刪除
+	 * @param id
+	 * @throws Exception
+	 */
+	public void delete(String id) throws Exception {
+		if (StringUtils.isBlank(id)) {
+			throw new Exception("ISBN不可為空!");
+		}
+		try {
+			rep.deleteById(id);
+		}catch (EmptyResultDataAccessException e) {
+			throw new Exception("無此ISBN");
+		}
 	}
 
 	/**

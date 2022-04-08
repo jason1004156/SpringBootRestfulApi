@@ -26,7 +26,11 @@ public class BookController implements RestfulController<Book> {
 	 */
 	@Override
 	public ReturnMsg getAll() {
-		return ReturnMsg.succ(bs.getAll());
+		try {
+			return ReturnMsg.succ(bs.getAll());
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
 	}
 
 	/**
@@ -34,7 +38,11 @@ public class BookController implements RestfulController<Book> {
 	 */
 	@Override
 	public ReturnMsg getById(String id) throws Exception {
-		return ReturnMsg.succ(bs.getById(id));
+		try {
+			return ReturnMsg.succ(bs.getById(id));
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
 	}
 
 	/**
@@ -42,17 +50,49 @@ public class BookController implements RestfulController<Book> {
 	 */
 	@Override
 	public ReturnMsg getByCondition(HttpServletRequest req) throws Exception {
-		return ReturnMsg.succ(bs.getByCondition(getParameterMap(req)));
+		try {
+			return ReturnMsg.succ(bs.getByCondition(getParameterMap(req)));
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
 	}
 
 	/**
 	 * 儲存
-	 * 
-	 * @throws Exception
 	 */
 	@Override
 	public ReturnMsg save(Book req) throws Exception {
-		bs.save(req);
+		try {
+			bs.save(req);
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
+		return ReturnMsg.succ();
+	}
+
+	/**
+	 * 更新
+	 */
+	@Override
+	public ReturnMsg update(String id, Book book) throws Exception {
+		try {
+			bs.update(id, book);
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
+		return ReturnMsg.succ();
+	}
+
+	/**
+	 * 刪除
+	 */
+	@Override
+	public ReturnMsg detete(String id) throws Exception {
+		try {
+			bs.delete(id);
+		} catch (Exception e) {
+			return ReturnMsg.err(e.getMessage());
+		}
 		return ReturnMsg.succ();
 	}
 
@@ -73,5 +113,4 @@ public class BookController implements RestfulController<Book> {
 		}
 		return pluginParameterMap;
 	}
-
 }

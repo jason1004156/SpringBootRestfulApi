@@ -17,4 +17,12 @@ public class ReturnMsg {
 	public static ReturnMsg succ() {
 		return new ReturnMsg("200", "操作成功");
 	}
+	
+	public static ReturnMsg err(String msg) {
+		return new ReturnMsg("500", msg);
+	}
+	
+	public static ReturnMsg err() {
+		return new ReturnMsg("500", "操作失敗");
+	}
 }
