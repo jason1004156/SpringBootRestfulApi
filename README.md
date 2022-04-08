@@ -1,5 +1,10 @@
 # SpringBootRestfulApi
 ***
+# 建置
+ 該專案有使用lombok
+ 
+ 請先安裝相關jar檔於您的IDE
+***
  基於Spring Boot所實作的Restful Api
  
  該專案索回傳api統一格式皆由`"state"`與`"data"`所組成
@@ -37,12 +42,6 @@
     ]
 }
 ```
-
-# 建置
- 該專案有使用lombok
- 
- 請先安裝相關jar檔於您的IDE
- 
  
 # API路徑
 ***
