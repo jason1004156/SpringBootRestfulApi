@@ -1,7 +1,7 @@
 # SpringBootRestfulApi
 ***
 # 建置
- 該專案有使用lombok
+ 該專案有使用lombok https://projectlombok.org/download
  
  請先安裝相關jar檔於您的IDE
 ***
