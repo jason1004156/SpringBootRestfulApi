@@ -19,15 +19,12 @@ import com.example.demo.entity.Book;
 public interface RestfulController<T> {
 	
 	@GetMapping
-	ReturnMsg getAll();
+	ReturnMsg get(HttpServletRequest req) throws Exception;
 	
 	@GetMapping("/{id}")
 	ReturnMsg getById(@PathVariable String id) throws Exception;
 	
-	@GetMapping("/getByCondition")
-	ReturnMsg getByCondition(HttpServletRequest req) throws Exception;
-	
-	@PostMapping("/save")
+	@PostMapping
 	ReturnMsg save(@RequestBody T req) throws Exception;
 	
 	@PutMapping("/{id}")

@@ -22,12 +22,12 @@ public class BookController implements RestfulController<Book> {
 	private BookService bs;
 
 	/**
-	 * 取得所有資料
+	 * 依條件取得
 	 */
 	@Override
-	public ReturnMsg getAll() {
+	public ReturnMsg get(HttpServletRequest req) throws Exception {
 		try {
-			return ReturnMsg.succ(bs.getAll());
+			return ReturnMsg.succ(bs.getByCondition(getParameterMap(req)));
 		} catch (Exception e) {
 			return ReturnMsg.err(e.getMessage());
 		}
@@ -40,18 +40,6 @@ public class BookController implements RestfulController<Book> {
 	public ReturnMsg getById(String id) throws Exception {
 		try {
 			return ReturnMsg.succ(bs.getById(id));
-		} catch (Exception e) {
-			return ReturnMsg.err(e.getMessage());
-		}
-	}
-
-	/**
-	 * 依條件取得
-	 */
-	@Override
-	public ReturnMsg getByCondition(HttpServletRequest req) throws Exception {
-		try {
-			return ReturnMsg.succ(bs.getByCondition(getParameterMap(req)));
 		} catch (Exception e) {
 			return ReturnMsg.err(e.getMessage());
 		}

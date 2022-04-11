@@ -31,28 +31,6 @@ public class BookService {
 	private static String BaseSQL = "select b from Book as b where 1=1 ";
 	private static String[] columns = { "ISBN", "Name", "Author", "Translator", "Publisher", "PublicationDate",
 			"Price" };
-
-	/**
-	 * 取得所有資料
-	 * @return
-	 */
-	public List<Book> getAll(){
-		return rep.findAll();
-	}
-	
-	/**
-	 * 依id(ISBN)取得資料
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public Optional<Book> getById(String id) throws Exception{
-		if (StringUtils.isBlank(id)) {
-			throw new Exception("ISBN不可為空!");
-		}
-		return rep.findById(id);
-	}
-	
 	
 	/**
 	 * 依據條件查詢
@@ -69,6 +47,19 @@ public class BookService {
 		List<Book> res = (List<Book>) q.getResultList();
 		return res;
 
+	}
+	
+	/**
+	 * 依id(ISBN)取得資料
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	public Optional<Book> getById(String id) throws Exception{
+		if (StringUtils.isBlank(id)) {
+			throw new Exception("ISBN不可為空!");
+		}
+		return rep.findById(id);
 	}
 	
 	/**

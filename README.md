@@ -59,20 +59,9 @@
         }
   ```
         
- ## 查詢全部
+ ## 查詢全部或依參數查詢
   GET localhost:8080/book
-  
-  回傳Book清單
- ## 依ISBN查詢
-  GET localhost:8080/book/{ISBN}
-  
-  範例: localhost:8080/book/000-18-1803-1
-  
-  回傳Book物件
- ## 依條件查詢
-  GET localhost:8080/book/getByCondition?{查詢條件}
-  
-  範例: localhost:8080/book/getByCondition?ISBN=000-18-1803-1
+
   ### 支援參數
   以下參數為**Case Sensitve**
   |參數名稱|類型|
@@ -88,6 +77,10 @@
   |Price|數字(Double)|
   
   回傳Book清單
+ ## 依ISBN查詢
+  GET localhost:8080/book/{ISBN}
+  
+  回傳Book物件
  ## 儲存
   POST localhost:8080/book/save
   
