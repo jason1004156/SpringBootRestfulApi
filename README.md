@@ -20,7 +20,8 @@
  代表操作失敗，`"data"`內會顯示錯誤訊息
  
  # 回傳範例
- ```JSON{
+ ```JSON
+ {
     "state": "200",
     "data": [
         {
@@ -48,7 +49,8 @@
 # API路徑
 ***
 ## Book物件
-```JSON{
+```JSON
+        {
             "name": "Spring 2.0技術手冊",
             "translator": null,
             "price": 0.0,
