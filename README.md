@@ -82,7 +82,7 @@
   
   回傳Book物件
  ## 儲存
-  POST localhost:8080/book/save
+  POST localhost:8080/book
   
   無回傳
  ## 更新
