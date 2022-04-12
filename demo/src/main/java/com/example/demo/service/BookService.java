@@ -148,7 +148,7 @@ public class BookService {
 		for (String column : columns) {
 			String temp = MapUtils.getString(req, column);
 			if (StringUtils.isNotBlank(temp)) {
-				if (column.contains("Date")) {
+				if (column.endsWith("Date")) {
 					q.setParameter(column, Date.valueOf(temp));
 				}else if (column.contains("Price")) {
 					q.setParameter(column, Double.valueOf(temp));
@@ -156,7 +156,7 @@ public class BookService {
 					q.setParameter(column, temp);
 				}
 			}
-			if (column.contains("Date")) {
+			if (column.endsWith("Date")) {
 				String tempStart = column + "Start";
 				String tempEnd = column + "End";
 				String dateStart = MapUtils.getString(req, tempStart);
