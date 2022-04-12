@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.compoment.ReturnMsg;
+import com.example.demo.common.ReturnMsg;
 import com.example.demo.controller.Interface.RestfulController;
 import com.example.demo.entity.Book;
 import com.example.demo.service.BookService;

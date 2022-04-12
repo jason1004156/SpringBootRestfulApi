@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.common.EntityTool;
 import com.example.demo.entity.Book;
 import com.example.demo.repository.BookRepository;
 
@@ -29,8 +30,7 @@ public class BookService {
 	private EntityManagerFactory emf;
 
 	private static String BaseSQL = "select b from Book as b where 1=1 ";
-	private static String[] columns = { "ISBN", "Name", "Author", "Translator", "Publisher", "PublicationDate",
-			"Price" };
+	private static String[] columns = EntityTool.getFields(new Book());
 	
 	/**
 	 * 依據條件查詢
@@ -45,6 +45,7 @@ public class BookService {
 		Query q = em.createQuery(sql);
 		setParam(q, req);
 		List<Book> res = (List<Book>) q.getResultList();
+		em.close();
 		return res;
 
 	}

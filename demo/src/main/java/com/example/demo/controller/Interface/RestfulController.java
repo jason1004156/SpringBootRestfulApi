@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.compoment.ReturnMsg;
+import com.example.demo.common.ReturnMsg;
 import com.example.demo.entity.Book;
 
 
