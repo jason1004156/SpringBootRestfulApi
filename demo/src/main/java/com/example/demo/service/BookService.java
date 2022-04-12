@@ -120,7 +120,7 @@ public class BookService {
 				conditionSql.append(" and " + column + " = :" + column);
 			}
 
-			if (column.contains("Date")) {
+			if (column.endsWith("Date")) {
 				String tempStart = column + "Start";
 				String tempEnd = column + "End";
 				String dateStart = MapUtils.getString(req, tempStart);
