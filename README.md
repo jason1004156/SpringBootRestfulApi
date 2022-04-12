@@ -62,7 +62,7 @@
         
  ## 查詢全部或依參數查詢
   GET localhost:8080/book
-
+  GET localhost:8080/book?Author=扛
   ### 支援參數
   以下參數為**Case Sensitve**
   |參數名稱|類型|
