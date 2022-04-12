@@ -36,7 +36,7 @@ class BookServiceTest {
 	@Test
 	public void testGetByCondition() {
 
-		String[] columns = EntityTool.getFields(new Book());
+		String[] columns = EntityTool.getFields(Book.class);
 		for (String column : columns) {
 			Map<String, String> req = new HashMap<String, String>();
 			if (column.endsWith("Date")) {
@@ -61,7 +61,7 @@ class BookServiceTest {
 	@Test
 	public void testGetByConditionNoData() {
 
-		String[] columns = EntityTool.getFields(new Book());
+		String[] columns = EntityTool.getFields(Book.class);
 		for (String column : columns) {
 			Map<String, String> req = new HashMap<String, String>();
 			if (column.endsWith("Date")) {

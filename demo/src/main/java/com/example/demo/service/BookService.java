@@ -30,7 +30,7 @@ public class BookService {
 	private EntityManagerFactory emf;
 
 	private static String BaseSQL = "select b from Book as b where 1=1 ";
-	private static String[] columns = EntityTool.getFields(new Book());
+	private static String[] columns = EntityTool.getFields(Book.class);
 	
 	/**
 	 * 依據條件查詢

@@ -14,9 +14,9 @@ public class EntityTool {
 	 * @param entity
 	 * @return
 	 */
-	public static <T> String[] getFields(T entity) {
+	public static String[] getFields(Class<?> entity) {
 		List<String> columns = new ArrayList<>();
-		for (Field field : entity.getClass().getDeclaredFields()) {
+		for (Field field : entity.getDeclaredFields()) {
 			if (field.isAnnotationPresent(Column.class)) {
 				columns.add(field.getAnnotation(Column.class).name());
 			}
