@@ -4,7 +4,7 @@
  該專案有使用lombok https://projectlombok.org/download
  
  請先安裝相關jar檔於您的IDE
-#Docker執行
+# Docker執行
  若欲以Docker執行，請先執行**build.bat**後運行**enableDocker.bat**
 ***
  基於Spring Boot所實作的Restful Api
@@ -20,7 +20,8 @@
  代表操作失敗，`"data"`內會顯示錯誤訊息
  
  # 回傳範例
- ```JSON{
+ ```JSON
+ {
     "state": "200",
     "data": [
         {
@@ -48,7 +49,8 @@
 # API路徑
 ***
 ## Book物件
-```JSON{
+```JSON
+        {
             "name": "Spring 2.0技術手冊",
             "translator": null,
             "price": 0.0,
@@ -82,7 +84,7 @@
   
   回傳Book物件
  ## 儲存
-  POST localhost:8080/book/save
+  POST localhost:8080/book
   
   無回傳
  ## 更新
