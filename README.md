@@ -1,12 +1,11 @@
 # SpringBootRestfulApi
-***
 # 建置
  該專案有使用lombok https://projectlombok.org/download
  
  請先安裝相關jar檔於您的IDE
 # Docker執行
  若欲以Docker執行，請先執行**build.bat**後運行**enableDocker.bat**
-***
+# 說明
  基於Spring Boot所實作的Restful Api
  
  該專案索回傳api統一格式皆由`"state"`與`"data"`所組成
