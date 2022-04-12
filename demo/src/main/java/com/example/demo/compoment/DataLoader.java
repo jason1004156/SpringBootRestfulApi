@@ -14,6 +14,9 @@ public class DataLoader implements CommandLineRunner {
 	@Autowired
 	private BookRepository rep;
 
+	/**
+	 * 資料庫預設資料
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub

@@ -30,6 +30,9 @@ class BookServiceTest {
 		bs.save(getTestData());
 	}
 
+	/**
+	 * 確保各欄位條件有所作用
+	 */
 	@Test
 	public void testGetByCondition() {
 
@@ -51,7 +54,10 @@ class BookServiceTest {
 
 		}
 	}
-	
+
+	/**
+	 * 確保各欄位條件有所作用
+	 */
 	@Test
 	public void testGetByConditionNoData() {
 
@@ -69,7 +75,10 @@ class BookServiceTest {
 			assertTrue(books.size() == 0);
 		}
 	}
-
+	/**
+	 * 測試資料
+	 * @return
+	 */
 	private Book getTestData() {
 		Book book = new Book();
 		book.setISBN("testISBN");

@@ -8,7 +8,12 @@ import javax.persistence.Column;
 
 public class EntityTool {
 	
-	
+	/**
+	 * 取得傳入Entity中的欄位
+	 * @param <T>
+	 * @param entity
+	 * @return
+	 */
 	public static <T> String[] getFields(T entity) {
 		List<String> columns = new ArrayList<>();
 		for (Field field : entity.getClass().getDeclaredFields()) {
