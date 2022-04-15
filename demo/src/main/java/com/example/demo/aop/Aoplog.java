@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -23,8 +22,6 @@ import org.springframework.web.util.WebUtils;
 public class Aoplog {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-	
-	private static final String aopWebLog = "aopWebLog()";
 
 	// 執行緒局部變數，用於解決多執行緒衝突
 	ThreadLocal<Long> startTime = new ThreadLocal<>();
@@ -35,7 +32,7 @@ public class Aoplog {
 
 	}
 
-	@Before(aopWebLog)
+	@Before("aopWebLog()")
 	public void doBefore(JoinPoint j) {
 		startTime.set(System.currentTimeMillis());
 		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -52,15 +49,10 @@ public class Aoplog {
 		
 	}
 
-	@AfterReturning(pointcut = aopWebLog, returning = ("retObject"))
+	@AfterReturning(pointcut = "aopWebLog()", returning = ("retObject"))
 	public void doAfterReturning(Object retObject) {
 		log.info("回應值:" + retObject);
 		log.info("費時:" + (System.currentTimeMillis() - startTime.get()));
-	}
-	
-	@AfterThrowing(pointcut = aopWebLog)
-	public void doAfterThorowing(JoinPoint j,Exception e) {
-		log.error("執行例外", e);
 	}
 	
 	 private String getPayload(HttpServletRequest request) {
