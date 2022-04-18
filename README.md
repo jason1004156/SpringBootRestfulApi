@@ -1,6 +1,6 @@
 # SpringBootRestfulApi
 # 建置
- 該專案有使用lombok https://projectlombok.org/download
+ 此專案使用lombok https://projectlombok.org/download
  
  請先安裝相關jar檔於您的IDE
 # Docker執行
@@ -8,7 +8,9 @@
 # 說明
  基於Spring Boot所實作的Restful Api
  
- 該專案索回傳api統一格式皆由`"state"`與`"data"`所組成
+ 此專案有使用Swagger，以下Api說明也可由 http://localhost:8080/swagger-ui/index.html 中查看與測試
+ 
+ 此專案索回傳api統一格式皆由`"state"`與`"data"`所組成
  
  當 `"state" : "200"`
  
